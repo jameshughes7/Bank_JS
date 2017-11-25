@@ -2,11 +2,15 @@
 
 (function(exports) {
   function Statement() {
-    var transaction_records = [];
+    this.transactionRecords = [];
   }
 
-  Statement.prototype.print_balance = function() {
-    return this.transaction_records;
+  Statement.prototype.printStatement = function() {
+    return this.transactionRecords;
+  };
+
+  Statement.prototype.printTransactions = function(date, type, amount) {
+    this.transactionRecords.push({date: date, type: type, amount: amount})
   };
 
   exports.Statement = Statement;
